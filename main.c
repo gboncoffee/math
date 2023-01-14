@@ -53,6 +53,12 @@ int main(int argc, char *argv[]) {
 
         c = getchar();
 
+        if (c == EOF) {
+            free(buf);
+            putchar('\n');
+            break;
+        }
+
         if (c == '\n') {
 
             buf[buf_loc] = '\0';
