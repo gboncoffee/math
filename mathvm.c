@@ -66,13 +66,13 @@ int pop_vm(signed long *pop_var) {
     return(errno);
 }
 
-signed long run() {
+signed long run(void) {
 #ifdef DEBUG_VM
     printf("REACHED RUN:\n");
-    printf("text: %p\n", text);
-    printf("ip: %p\n", ip);
-    printf("stack: %p\n", stack->stack);
-    printf("dp: %p\n", stack->dp);
+    printf("text: %p\n", (void *) text);
+    printf("ip: %p\n", (void *) ip);
+    printf("stack: %p\n", (void *) stack->stack);
+    printf("dp: %p\n", (void *) stack->dp);
     printf("\n");
 #endif
 
@@ -155,7 +155,7 @@ signed long init(signed long *_text) {
 }
 
 #ifdef DEBUG_VM
-int main() {
+int main(void) {
     // 2 . (20 - 5) / (2 + 1)
     signed long text[] = {
         '<', 2, '<', 20, '<', 5,
